@@ -12,14 +12,20 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        return User::create([
+        $user1 = ['name'=>'admin',
+            'password'=>bcrypt('admin'),
+            'email'=>'avijit@mailinator.com',
+            'admin'=>1,
+            'avatar'=>asset('avatars/avatar.png')
+        ];
 
-        	'name'=>'admin',
-        	'password'=>bcrypt('admin'),
-        	'email'=>'avijit@mailinator.com',
-        	'admin'=>1,
-        	'avatar'=>asset('avatars/avatar.svg')
-
-        ]);
+        $user2 = ['name'=>'Avijit',
+            'password'=>bcrypt('123456'),
+            'email'=>'avijit1@mailinator.com',
+            'admin'=>0,
+            'avatar'=>asset('avatars/avatar.png')
+        ];
+        User::create($user1);
+        User::create($user2);
     }
 }
